@@ -20,6 +20,7 @@ convert_loop:
     movzx eax, byte [esi]
     inc esi
 
+    ; high nibble
     mov ebx,eax
     shr ebx, 4
     and ebx, 0x0F
@@ -27,6 +28,7 @@ convert_loop:
     mov [edi], bl
     inc edi
 
+    ; low nibble
     and eax, 0x0F
     mov bl, [hexDigits + eax]
     mov [edi], bl
@@ -37,9 +39,11 @@ convert_loop:
 
     loop convert_loop
 
+    ; newline at the end of outputbuf
     mov byte [edi], 0x0A
     inc edi
 
+    ; output
     sub edi, outputBuf
     mov edx, edi
     mov ecx, outputBuf
@@ -47,6 +51,7 @@ convert_loop:
     mov eax, 4
     int 0x80
 
+    ; exit the program
     mov eax, 1
     xor ebx, ebx
     int 0x80
