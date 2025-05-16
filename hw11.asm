@@ -1,5 +1,7 @@
 ; File: hw11.asm
 ; Purpose: Convert bytes in inputBug to ASCII hex and print
+; Creator: Connor Myers
+; Class: CMSC 313, MON/WED 10AM, Dr. Kidd
 
 section .data
     inputBuf db 0x83, 0x6A, 0x88, 0xDE, 0x9A, 0xC3, 0x54, 0x9A
