@@ -22,7 +22,7 @@ convert_loop:
     movzx eax, byte [esi]
     inc esi
 
-    ; high nibble
+    ; get high nibble (first 4 bits)
     mov ebx,eax
     shr ebx, 4
     and ebx, 0x0F
@@ -30,16 +30,17 @@ convert_loop:
     mov [edi], bl
     inc edi
 
-    ; low nibble
+    ; get low nibble (second 4 bits)
     and eax, 0x0F
     mov bl, [hexDigits + eax]
     mov [edi], bl
     inc edi
 
+    ; space after each byte
     mov byte [edi], ' '
     inc edi
 
-    loop convert_loop
+    loop convert_loop ; loop through and translate each hex value
 
     ; newline at the end of outputbuf
     mov byte [edi], 0x0A
