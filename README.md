@@ -1,4 +1,4 @@
-# hw11: Print out data in ASCII hex
+# HW11: Print out data in ASCII hex
 
 ## AUTHORING
 - **Author:** Connor Myers
